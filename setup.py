@@ -4,11 +4,12 @@ from os import path
 
 from setuptools import setup
 
+this_directory = path.abspath(path.dirname(__file__))
 # Version
-with open(path.join(path.dirname(__file__), 'prosegrinder', 'VERSION')) as version_file:
+with open(path.join(this_directory, 'prosegrinder', 'VERSION'), encoding='utf-8') as version_file:
     VERSION = version_file.read().strip()
 # Long Description
-with open(path.join(path.dirname(__file__), 'README.rst')) as readme_file:
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
 setup(
@@ -16,6 +17,7 @@ setup(
     version=VERSION,
     description='A text analytics library for prose fiction.',
     long_description=LONG_DESCRIPTION,
+    long_description_content_type='text/markdown',
     author='David L. Day',
     author_email='dday376@gmail.com',
     url='https://github.com/prosegrinder/python-prosegrinder',
